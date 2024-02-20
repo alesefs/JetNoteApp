@@ -23,10 +23,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.jetnote.model.Note
-import java.time.format.DateTimeFormatter
+import com.example.jetnote.util.formatDate
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
@@ -104,8 +103,10 @@ fun NoteRow(
                 text = note.description,
                 style = MaterialTheme.typography.bodyMedium
             )
+
             Text(
-                text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+                //text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+                text = formatDate(note.entryDate.time),
                 style = MaterialTheme.typography.labelMedium
             )
         }
