@@ -94,7 +94,7 @@ fun NoteScreen(
                 label = "Add a note",
                 onTextChange = {
                     if (it.all { char ->
-                            char.isLetter() || char.isWhitespace()
+                            char.isLetter() || char.isDigit() || char.isWhitespace()
                         }) description = it
                 }
             )
